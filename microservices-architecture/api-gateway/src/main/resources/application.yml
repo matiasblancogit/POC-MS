@@ -1,0 +1,57 @@
+server:
+  port: 8081
+
+spring:
+  main:
+    web-application-type: reactive
+  cloud:
+    config:
+      enabled: false
+ 
+
+    gateway:
+      routes:
+        - id: account-service
+          uri: lb://ACCOUNT-SERVICE
+          predicates:
+            - Path=/account/**
+        - id: transaction-service
+          uri: lb://TRANSACTION-SERVICE
+          predicates:
+            - Path=/transaction/**
+        - id: movement-service
+          uri: lb://MOVEMENT-SERVICE
+          predicates:
+            - Path=/movement/**
+        - id: security-service
+          uri: lb://SECURITY-SERVICE
+          predicates:
+            - Path=/security/**
+
+  security:
+    oauth2:
+      resourceserver:
+        jwt:
+          issuer-uri: http://localhost:8080/realms/POC-MS
+          jwk-set-uri: http://localhost:8080/realms/POC-MS/protocol/openid-connect/certs
+
+  keycloak:
+    auth-server-url: http://localhost:8080/auth
+    realm: POC-MS
+    resource: api-gateway
+    public-client: true
+
+jwt:
+  secret: my-secret-key
+  expiration: 3600 # Expiración del token en segundos
+
+
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8761/eureka/  
+
+logging:
+  level:
+    org.springframework.cloud.gateway: DEBUG
+    reactor.netty.http.client: DEBUG
