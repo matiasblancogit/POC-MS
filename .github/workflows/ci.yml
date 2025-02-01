@@ -1,25 +1,41 @@
-name: CI
+name: CI/CD Pipeline
 
 on:
   push:
     branches:
       - main
-      - develop
   pull_request:
+    branches:
+      - main
 
 jobs:
   build:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout Repo
+      - name: Checkout Repository
         uses: actions/checkout@v4
 
-      - name: Set up JDK 21
+      - name: Set up JDK 17
         uses: actions/setup-java@v3
         with:
           distribution: 'temurin'
-          java-version: '21'
+          java-version: '17'
 
-      - name: Build with Maven
-        run: mvn clean package -DskipTests
+      # Build Account Service
+      - name: Build Account Service
+        run: |
+          cd account-service
+          mvn clean package -DskipTests
+
+      # Build API Gateway
+      - name: Build API Gateway
+        run: |
+          cd api-gateway
+          mvn clean package -DskipTests
+
+      # Build Eureka Server
+      - name: Build Eureka Server
+        run: |
+          cd eureka-server
+          mvn clean package -DskipTests
