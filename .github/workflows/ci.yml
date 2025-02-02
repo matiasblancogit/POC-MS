@@ -40,11 +40,11 @@ jobs:
           cd eureka-server
           mvn clean package -DskipTests
 
-      - name: Build Docker image
+      - name: Build Docker images
         run: |
-          docker build -t ${{ secrets.DOCKER_USERNAME }}/api-gateway:latest .
-          docker build -t ${{ secrets.DOCKER_USERNAME }}/account-service:latest .
-          docker build -t ${{ secrets.DOCKER_USERNAME }}/transaction-service:latest .
+         docker build -t ${{ secrets.DOCKER_USERNAME }}/api-gateway:latest ./api-gateway
+         docker build -t ${{ secrets.DOCKER_USERNAME }}/account-service:latest ./account-service
+         docker build -t ${{ secrets.DOCKER_USERNAME }}/transaction-service:latest ./transaction-service
 
       - name: Push Docker images
         run: |
