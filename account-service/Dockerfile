@@ -5,7 +5,7 @@ FROM eclipse-temurin:21-jdk
 WORKDIR /app
 
 # Copiar el JAR compilado dentro del contenedor
-COPY target/api-gateway-0.0.1-SNAPSHOT.jar app.jar
+COPY target/account-service-0.0.1-SNAPSHOT.jar app.jar
 
 # Exponer el puerto en el que corre el servicio
 EXPOSE 8082
