@@ -48,10 +48,14 @@ jobs:
           ls -lah transaction-service
     
 
-      - name: Build Docker images
+      - name: Build Docker images API-GATEWAY
         run: |
          docker build -t ${{ secrets.DOCKER_USERNAME }}/api-gateway:latest -f api-gateway/Dockerfile api-gateway
+      - name: Build Docker image ACCOUNT-SERVICE
+        run: |  
          docker build -t ${{ secrets.DOCKER_USERNAME }}/account-service:latest -f account-service/Dockerfile account-service
+      - name: Build Docker image TRANSACTION-SERVICE
+        run: | 
          docker build -t ${{ secrets.DOCKER_USERNAME }}/transaction-service:latest -f transaction-service/Dockerfile transaction-service
 
       - name: Push Docker images
