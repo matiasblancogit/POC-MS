@@ -4,6 +4,8 @@ FROM eclipse-temurin:21-jdk
 # Establecer el directorio de trabajo
 WORKDIR /app
 
+RUN mvn clean package -DskipTests
+
 # Copiar el JAR compilado dentro del contenedor
 COPY target/account-service-0.0.1-SNAPSHOT.jar app.jar
 
