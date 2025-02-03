@@ -40,6 +40,14 @@ jobs:
           cd eureka-server
           mvn clean package -DskipTests
 
+            - name: Debug Files
+      - run: |
+          ls -lah
+          ls -lah account-service
+          ls -lah api-gateway
+          ls -lah transaction-service
+    
+
       - name: Build Docker images
         run: |
          docker build -t ${{ secrets.DOCKER_USERNAME }}/api-gateway:latest -f api-gateway/Dockerfile api-gateway
