@@ -40,8 +40,8 @@ jobs:
           cd eureka-server
           mvn clean package -DskipTests
 
-            - name: Debug Files
-      - run: |
+      - name: Debug Files
+        run: |
           ls -lah
           ls -lah account-service
           ls -lah api-gateway
