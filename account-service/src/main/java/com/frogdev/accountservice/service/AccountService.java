@@ -4,7 +4,7 @@ import com.frogdev.accountservice.model.Account;
 import com.frogdev.accountservice.repository.AccountRepository;
 import org.springframework.stereotype.Service;
 
-import java.util.Optional;
+
 
 @Service
 public class AccountService {
