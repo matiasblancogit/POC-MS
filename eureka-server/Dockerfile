@@ -8,7 +8,7 @@ WORKDIR /app
 COPY target/api-gateway-0.0.1-SNAPSHOT.jar app.jar
 
 # Exponer el puerto en el que corre el servicio
-EXPOSE 8081
+EXPOSE 8761
 
 # Comando para ejecutar el servicio
 ENTRYPOINT ["java", "-jar", "app.jar"]
