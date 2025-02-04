@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0" 
+<project xmlns="http://maven.apache.org/POM/4.0.0"
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>com.example</groupId>
+    <groupId>com.frogdev</groupId>
     <artifactId>api-gateway</artifactId>
     <version>0.0.1-SNAPSHOT</version>
     <name>api-gateway</name>
@@ -34,7 +34,7 @@
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-webflux</artifactId>
         </dependency>
-  
+
         <!-- Base de datos -->
         <dependency>
             <groupId>org.postgresql</groupId>
@@ -65,7 +65,7 @@
             <artifactId>lombok</artifactId>
             <scope>provided</scope>
         </dependency>
-      
+
 
         <!-- Testing -->
         <dependency>
@@ -80,113 +80,94 @@
             </exclusions>
         </dependency>
 
-            <dependency>
-        <groupId>org.junit.jupiter</groupId>
-        <artifactId>junit-jupiter-api</artifactId>
-        <scope>test</scope>
-    </dependency>
-    <dependency>
-        <groupId>org.junit.jupiter</groupId>
-        <artifactId>junit-jupiter-engine</artifactId>
-        <scope>test</scope>
-    </dependency>
+        <dependency>
+            <groupId>org.junit.jupiter</groupId>
+            <artifactId>junit-jupiter-api</artifactId>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.junit.jupiter</groupId>
+            <artifactId>junit-jupiter-engine</artifactId>
+            <scope>test</scope>
+        </dependency>
 
 
-  <dependency>
-        <groupId>org.springframework.boot</groupId>
-        <artifactId>spring-boot-starter-web</artifactId>
-    </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-web</artifactId>
+        </dependency>
 
-    <!-- Spring Cloud Gateway -->
-    <dependency>
-        <groupId>org.springframework.cloud</groupId>
-        <artifactId>spring-cloud-starter-gateway</artifactId>
-        <version>4.2.0</version> <!-- Asegúrate de usar la versión correcta -->
-    </dependency>
+        <!-- Spring Cloud Gateway -->
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-gateway</artifactId>
+            <version>4.2.0</version> <!-- Asegúrate de usar la versión correcta -->
+        </dependency>
 
- <!-- https://mvnrepository.com/artifact/io.jsonwebtoken/jjwt-api -->
-<!-- https://mvnrepository.com/artifact/io.jsonwebtoken/jjwt -->
-<dependency>
-    <groupId>io.jsonwebtoken</groupId>
-    <artifactId>jjwt</artifactId>
-    <version>0.9.0</version>
-</dependency>
+        <!-- https://mvnrepository.com/artifact/io.jsonwebtoken/jjwt-api -->
+        <!-- https://mvnrepository.com/artifact/io.jsonwebtoken/jjwt -->
+        <dependency>
+            <groupId>io.jsonwebtoken</groupId>
+            <artifactId>jjwt</artifactId>
+            <version>0.9.0</version>
+        </dependency>
 
 
 
-    <!-- Spring Security and OAuth2 for JWT Authentication -->
-    <dependency>
-        <groupId>org.springframework.boot</groupId>
-        <artifactId>spring-boot-starter-oauth2-resource-server</artifactId>
-    </dependency>
+        <!-- Spring Security and OAuth2 for JWT Authentication -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-oauth2-resource-server</artifactId>
+        </dependency>
 
-    <!-- Spring Cloud Config (Para la Configuración Centralizada) -->
-    <dependency>
-        <groupId>org.springframework.cloud</groupId>
-        <artifactId>spring-cloud-starter-config</artifactId>
-         <version>4.2.0</version>
-    </dependency>
+        <!-- Spring Cloud Config (Para la Configuración Centralizada) -->
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-config</artifactId>
+            <version>4.2.0</version>
+        </dependency>
 
-    <!-- Keycloak Spring Boot Adapter (Para integración con Keycloak) -->
-    <dependency>
-        <groupId>org.keycloak</groupId>
-        <artifactId>keycloak-spring-boot-starter</artifactId>
-        <version>15.0.2</version> <!-- Asegúrate de usar la versión correcta -->
-    </dependency>
+        <!-- Keycloak Spring Boot Adapter (Para integración con Keycloak) -->
+        <dependency>
+            <groupId>org.keycloak</groupId>
+            <artifactId>keycloak-spring-boot-starter</artifactId>
+            <version>15.0.2</version> <!-- Asegúrate de usar la versión correcta -->
+        </dependency>
 
-    <!-- Spring Boot Starter Actuator (Para métricas y monitorización) -->
-    <dependency>
-        <groupId>org.springframework.boot</groupId>
-        <artifactId>spring-boot-starter-actuator</artifactId>
-    </dependency>
+        <!-- Spring Boot Starter Actuator (Para métricas y monitorización) -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-actuator</artifactId>
+        </dependency>
 
-    <!-- Logback for logging -->
-    <dependency>
-        <groupId>org.springframework.boot</groupId>
-        <artifactId>spring-boot-starter-logging</artifactId>
-    </dependency>
+        <!-- Logback for logging -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-logging</artifactId>
+        </dependency>
 
 
     </dependencies>
 
+
     <build>
         <plugins>
-            <!-- Plugin de Spring Boot -->
             <plugin>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
-            </plugin>
-
-            <!-- Plugin para compilación con Java 21 -->
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-compiler-plugin</artifactId>
-                <version>3.11.0</version>
                 <configuration>
-                    <release>${java.version}</release>
+                    <mainClass>com.frogdev.apigateway.ApiGateway</mainClass>
+                    <layout>JAR</layout>
                 </configuration>
+                <executions>
+                    <execution>
+                        <goals>
+                            <goal>repackage</goal>
+                        </goals>
+                    </execution>
+                </executions>
             </plugin>
-
-            <!-- Plugin para control de dependencias -->
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-dependency-plugin</artifactId>
-                <version>3.5.0</version>
-            </plugin>
-
-
-             <plugin>
-        <groupId>org.apache.maven.plugins</groupId>
-        <artifactId>maven-jar-plugin</artifactId>
-        <version>3.1.0</version>
-        <configuration>
-            <archive>
-                <manifestEntries>
-                    <Main-Class>com.frogdev.apigateway.ApiGatewayApplication</Main-Class>
-                </manifestEntries>
-            </archive>
-        </configuration>
-    </plugin>
         </plugins>
     </build>
+
 </project>
